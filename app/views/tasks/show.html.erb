@@ -1,19 +1,18 @@
-<h1><%= @task.title %></h1>
+<h1 class="d-flex justify-content-between"><%= @task.title %>
+  <button type="button" class="btn btn-light"> <%= link_to "Edit this task", edit_task_path %></button>
+</h1>
+<br>
 
-<%= link_to "Edit this task", edit_task_path %>
-
-<div>
+<div class="p-3 mb-2 bg-light text-dark rounded">
   <h3><%= @task.details %></h3>
 </div>
 
 <div>
-    <li>
-      <% if @task.completed %>
-        <%= "☑️" "This taks is completed" %>
-      <% else %>
-        <%= "❌" "This taks is not completed yet "%>
-      <% end %>
-    </li>
+  <% if @task.completed %>
+     <input type="checkbox" id="scales" name="scales" checked> This taks is completed
+  <% else %>
+    <input type="checkbox" id="scales" name="scales" unchecked> This task is not completed yet
+  <% end %>
 </div>
-
-<%= link_to "Back to list", tasks_path %>
+<hr>
+<%= link_to "↩️ Back to list", tasks_path %>

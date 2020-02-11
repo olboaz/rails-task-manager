@@ -1,16 +1,17 @@
 <h1>All Tasks</h1>
 
-<ul>
+<ul class="list-group list-unstyled">
   <% @tasks.each do |task| %>
     <li>
       <% if task.completed  %>
-        <%= "☑️" %>
+        <input type="checkbox" id="scales" name="scales" checked>
       <% else %>
-        <%= "❌" %>
+        <input type="checkbox" id="scales" name="scales" unchecked>
       <% end  %>
       <%= link_to task.title, task_path(task) %>
-      <%= link_to "🧨", task_path(task), method: :delete, data: { confirm: "Are you sure?" } %>
+      <%= link_to " 🧨", task_path(task), method: :delete, data: { confirm: "Are you sure?" } %>
     </li>
   <% end %>
 </ul>
-<%= link_to "Add a new task", new_task_path %>
+<hr>
+<%= link_to "➕ Add a new task", new_task_path %>
